@@ -79,6 +79,7 @@ exports.showPushpins = function (request, response) {
       }
     });
   };
+  
 
   if (!exports.isConfigured()) {
     response.redirect('/setup');
