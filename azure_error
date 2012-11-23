@@ -1,0 +1,13 @@
+Fri Nov 23 2012 00:50:34 GMT-0800 (PST):
+[Error: Application setting with key "AZURE_STORAGE_ACCESS_KEY" does not exist.]
+Error: Application setting with key "AZURE_STORAGE_ACCESS_KEY" does not exist.
+    at Error (unknown source)
+    at __$__3 (/usr/local/lib/node_modules/azure-cli/lib/commands/siteconfig.js:132:24)
+    at __$__3 (/usr/local/lib/node_modules/azure-cli/lib/commands/siteconfig.js:127:126)
+    at __$__3 (/usr/local/lib/node_modules/azure-cli/lib/commands/siteconfig.js:127:142)
+    at ___ (/usr/local/lib/node_modules/azure-cli/lib/commands/siteconfig.js:127:177)
+    at ___ (/usr/local/lib/node_modules/azure-cli/node_modules/streamline/lib/callbacks/runtime.js:54:12)
+    at exports.init.site.doSiteConfigGet (/usr/local/lib/node_modules/azure-cli/lib/commands/site.js:995:14)
+    at Channel.send (/usr/local/lib/node_modules/azure-cli/lib/channel.js:124:24)
+    at Parser.<anonymous> (/usr/local/lib/node_modules/azure-cli/lib/channel.js:153:16)
+    at Parser.EventEmitter.emit (events.js:93:17)
