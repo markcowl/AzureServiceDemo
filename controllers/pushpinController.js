@@ -25,7 +25,7 @@ var initialized = false;
 nconf.env(['AZURE_STORAGE_ACCOUNT', 'AZURE_STORAGE_ACCESS_KEY', 'BING_MAPS_CREDENTIALS']);
 
 nconf.set('BING_MAPS_CREDENTIALS', process.env.bing_maps_credentials);
-var pushpinService = new PushpinService(nconf.get('AZURE_STORAGE_ACCOUNT'), nconf.get('AZURE_STORAGE_ACCESS_KEY'));
+var pushpinService = new PushpinService(process.env.AZURE_STORAGE_ACCOUNT, process.env.AZURE_STORAGE_ACCESS_KEY));
 
 exports.io = null;
 
@@ -75,7 +75,7 @@ exports.showPushpins = function (request, response) {
       locals: {
         error: error,
         pushpins: entities,
-        bingMapsCredentials: nconf.get('BING_MAPS_CREDENTIALS')
+        bingMapsCredentials: process.env.BING_MAPS_CREDENTIALS
       }
     });
   };
