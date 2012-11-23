@@ -37,8 +37,7 @@ exports.setup = function (request, response) {
 exports.setupPOST = function (request, response) {
   var showError = function (message) {
     // TODO: actually show the error message
-    //response.render('setup');
-    throw message;
+    response.render('setup');
   };
 
   if (request.body.account &&
@@ -146,9 +145,9 @@ exports.socketConnection = function(socket) {
 };
 
 exports.isConfigured = function () {
-  if (nconf.get('AZURE_STORAGE_ACCOUNT')) {
-    return true;
-  }
+  //if (nconf.get('AZURE_STORAGE_ACCOUNT')) {
+    //return true;
+  //}
 
-  return false;
+  return true;
 };
