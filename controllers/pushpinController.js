@@ -23,6 +23,8 @@ var PushpinService = require('../services/pushpinService');
 
 var initialized = false;
 nconf.env(['AZURE_STORAGE_ACCOUNT', 'AZURE_STORAGE_ACCESS_KEY', 'BING_MAPS_CREDENTIALS']);
+
+nconf.set('BING_MAPS_CREDENTIALS', process.env.bing_maps_credentials);
 var pushpinService = new PushpinService(nconf.get('AZURE_STORAGE_ACCOUNT'), nconf.get('AZURE_STORAGE_ACCESS_KEY'));
 
 exports.io = null;
