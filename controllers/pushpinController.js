@@ -26,7 +26,7 @@ nconf.env(['AZURE_STORAGE_ACCOUNT', 'AZURE_STORAGE_ACCESS_KEY', 'BING_MAPS_CREDE
 nconf.set('AZURE_STORAGE_ACCOUNT', process.env.azure_storage_account);
 nconf.set('AZURE_STORAGE_ACCESS_KEY', process.env.azure_storage_access_key);
 nconf.set('BING_MAPS_CREDENTIALS', process.env.bing_maps_credentials);
-var pushpinService = new PushpinService(process.env.AZURE_STORAGE_ACCOUNT, process.env.AZURE_STORAGE_ACCESS_KEY));
+var pushpinService = new PushpinService(process.env.AZURE_STORAGE_ACCOUNT, process.env.AZURE_STORAGE_ACCESS_KEY);
 
 exports.io = null;
 
