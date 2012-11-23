@@ -36,7 +36,8 @@ exports.setup = function (request, response) {
 exports.setupPOST = function (request, response) {
   var showError = function (message) {
     // TODO: actually show the error message
-    response.render('setup');
+    //response.render('setup');
+    throw message;
   };
 
   if (request.body.account &&
