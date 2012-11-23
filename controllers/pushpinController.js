@@ -22,11 +22,7 @@ nconf.file({ file: 'config.json' });
 var PushpinService = require('../services/pushpinService');
 
 var initialized = false;
-nconf.env(['AZURE_STORAGE_ACCOUNT', 'AZURE_STORAGE_ACCESS_KEY', 'BING_MAPS_CREDENTIALS']);
-//nconf.set('AZURE_STORAGE_ACCOUNT', process.env.azure_storage_account);
-//nconf.set('AZURE_STORAGE_ACCESS_KEY', process.env.azure_storage_access_key);
-//nconf.set('BING_MAPS_CREDENTIALS', process.env.bing_maps_credentials);
-var pushpinService = new PushpinService(nconf.get('AZURE_STORAGE_ACCOUNT'), nconf.get('AZURE_STORAGE_ACCESS_KEY'));
+var pushpinService = new PushpinService(process.env.AZURE_STORAGE_ACCOUNT, process.env.AZURE_STORAGE_ACCESS_KEY);
 
 exports.io = null;
 
@@ -75,15 +71,13 @@ exports.showPushpins = function (request, response) {
       locals: {
         error: error,
         pushpins: entities,
-        bingMapsCredentials: nconf.get('BING_MAPS_CREDENTIALS')
+        bingMapsCredentials: process.env.BING_MAPS_CREDENTIALS
       }
     });
   };
-  
 
-  if (!exports.isConfigured()) {
-    response.redirect('/setup');
-  } else if (!initialized) {
+
+if (!initialized) {
     pushpinService.initialize(action);
   } else {
     action();
@@ -115,9 +109,7 @@ exports.createPushpin = function (request, response) {
     });
   };
 
-  if (!exports.isConfigured()) {
-    response.redirect('/setup');
-  } else if (!initialized) {
+ if (!initialized) {
     pushpinService.initialize(action);
   } else {
     action();
@@ -143,12 +135,4 @@ exports.socketConnection = function(socket) {
       }
     });
   });
-};
-
-exports.isConfigured = function () {
-  if (nconf.get('AZURE_STORAGE_ACCOUNT')) {
-    return true;
-  }
-
-  return false;
 };
