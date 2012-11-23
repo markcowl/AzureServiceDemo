@@ -145,9 +145,9 @@ exports.socketConnection = function(socket) {
 };
 
 exports.isConfigured = function () {
-  //if (nconf.get('AZURE_STORAGE_ACCOUNT')) {
-    //return true;
-  //}
+  if (nconf.get('AZURE_STORAGE_ACCOUNT')) {
+    return true;
+  }
 
-  return true;
+  return false;
 };
